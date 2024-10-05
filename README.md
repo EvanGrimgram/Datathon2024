@@ -1,7 +1,7 @@
 # Declining Population of Butterflies of Washington/Texas - Datathon 2024
 The fundamentals of civilization rest on the foundation of food security. When food security becomes compromised, empires collapse and societies fall. Food production is a delicate process when dealing with environmental factors: temperature, precipitation, humidity, soil properties, climate, and pollinators. These ecological factors profoundly impact the growth and prosperity of our food crops. In recent times, many of these variables have fluctuated, and some have become more scarce. Pollinators, as will be shown, have declined significantly over the years...
 
-
+Remove below later...:
 
 Your responsibility is to select and analyze relevant data, interpret your findings, and recommend a strategy. Multiple teams are working on different aspects of this issue, and your group has been assigned to focus on monarch butterflies.
 Your report must address the following:
