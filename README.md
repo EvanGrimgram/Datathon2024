@@ -17,13 +17,9 @@ technical details.
 
 
 For Beginner:
-Access the file: USDA PDP AnalyticalResults.csv
-This file contains data on pesticide use across all U.S. states.
+1. Access the file: USDA PDP AnalyticalResults.csv. This file contains data on pesticide use across all U.S. states.
 
 2. Follow the instructions in Section 2.2 of “2024 Rowdy Datathon Supplementary Material” to create a color map that shows each state’s pesticide concentration, with a focus on the pesticide with the highest concentration in each state.
 
-Planned Obsolescence: Discard after October 7, 2024 11
-
-2024 Rowdy Datathon
 
 3. Visit the Journey North website and map the number of monarch butterfly sightings by state. You can collect data by hand or using the Web scraping approach described in Chapter 4 of “2024 Rowdy Datathon Supplementary Material”.
