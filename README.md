@@ -3,10 +3,7 @@ The fundamentals of civilization rest on the foundation of food security. When f
 
 
 
-Your responsibility is to select and analyze relevant data, interpret your find-
-ings, and recommend a strategy. Multiple teams are working on different aspects
-
-of this issue, and your group has been assigned to focus on monarch butterflies.
+Your responsibility is to select and analyze relevant data, interpret your findings, and recommend a strategy. Multiple teams are working on different aspects of this issue, and your group has been assigned to focus on monarch butterflies.
 Your report must address the following:
  A detailed description of monarch butterfly population fluctuations.
  An investigation of factors that may be contributing to these population
@@ -23,15 +20,10 @@ For Beginner:
 Access the file: USDA PDP AnalyticalResults.csv
 This file contains data on pesticide use across all U.S. states.
 
-2. Follow the instructions in Section 2.2 of “2024 Rowdy Datathon Supplemen-
-tary Material” to create a color map that shows each state’s pesticide con-
-centration, with a focus on the pesticide with the highest concentration in each state.
+2. Follow the instructions in Section 2.2 of “2024 Rowdy Datathon Supplementary Material” to create a color map that shows each state’s pesticide concentration, with a focus on the pesticide with the highest concentration in each state.
 
 Planned Obsolescence: Discard after October 7, 2024 11
 
 2024 Rowdy Datathon
 
-3. Visit the Journey North website and map the number of monarch butterfly
-sightings by state. You can collect data by hand or using the Web scraping
-approach described in Chapter 4 of “2024 Rowdy Datathon Supplementary
-Material” .
+3. Visit the Journey North website and map the number of monarch butterfly sightings by state. You can collect data by hand or using the Web scraping approach described in Chapter 4 of “2024 Rowdy Datathon Supplementary Material”.
