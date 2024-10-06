@@ -1,0 +1,46 @@
+# Install necessary libraries:
+pip install requests beautifulsoup4 pandas
+
+# Web Scraping Code:
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+# Step 1: Fetch the page content
+url = "https://journeynorth.org/monarchs/sightings"  # Replace this with the actual URL for monarch sightings
+response = requests.get(url)
+
+# Step 2: Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Step 3: Locate the sightings data (this part depends on the actual HTML structure of the website)
+# You need to inspect the structure of the website to find the right HTML elements containing the data.
+# For example:
+sightings_data = []
+for entry in soup.find_all('div', class_='sighting-entry'):  # Adjust the class name accordingly
+    state = entry.find('span', class_='state').text  # Adjust based on actual structure
+    count = entry.find('span', class_='count').text  # Adjust based on actual structure
+    sightings_data.append([state, count])
+
+# Step 4: Convert the data into a Pandas DataFrame
+df = pd.DataFrame(sightings_data, columns=['State', 'Count'])
+
+# Step 5: Save or display the DataFrame
+df['Count'] = df['Count'].astype(int)  # Convert Count to integer for plotting
+df.to_csv('monarch_sightings.csv', index=False)
+print(df)
+
+# Run Script and output will be saved in a CSV file "monarch_sightings.csv".
+
+### To visualize: ###
+import matplotlib.pyplot as plt
+
+# Group data by state and sum up the sightings count
+state_sightings = df.groupby('State')['Count'].sum()
+
+# Plot the data (simple bar chart for example)
+state_sightings.plot(kind='bar', figsize=(10,6))
+plt.title('Monarch Butterfly Sightings by State')
+plt.ylabel('Number of Sightings')
+plt.show()
+
