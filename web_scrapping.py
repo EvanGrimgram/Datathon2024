@@ -17,8 +17,8 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # Step 3: Locate the sightings data (this part depends on the actual HTML structure of the website)
 sightings_data = []
 for entry in soup.find_all('div', class_='sighting-entry'):  # Adjust the class name accordingly
-    state = entry.find('span', class_='state')
-    count = entry.find('span', class_='count')
+    state = entry.find('span', class_='State/Province')
+    count = entry.find('span', class_='Number')
     if state and count:  # Check if the elements are found
         sightings_data.append([state.text, count.text])
 
