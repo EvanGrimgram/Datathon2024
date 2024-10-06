@@ -1,42 +1,37 @@
-# Install necessary libraries:
-# pip install requests beautifulsoup4 pandas matplotlib
-
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Step 1: Fetch the page content
-url = "https://journeynorth.org/sightings/querylist.html?map=monarch-adult-spring&year=2024&season=spring"
+url = "https://journeynorth.org/sightings/querylist.html?map=monarch-adult-spring&year=2024&season=spring"  # the actual URL for monarch sightings
 response = requests.get(url)
 
 # Step 2: Parse the HTML content using BeautifulSoup
 soup = BeautifulSoup(response.text, 'html.parser')
 
-# Step 3: Locate the sightings data based on the actual HTML structure
+# Step 3: Locate the table and extract data
+table = soup.find('table', class_='querylist')  # Adjust the class name if necessary
 sightings_data = []
-table = soup.find('table', class_='views-table')  # Assuming the data is in a table
-if table:
-    rows = table.find_all('tr')
-    for row in rows[1:]:  # Skipping the header row
-        cols = row.find_all('td')
-        if len(cols) >= 5:  # Adjust this based on number of columns
-            date = cols[0].text.strip()
-            state = cols[1].text.strip()
-            location = cols[2].text.strip()
-            number = cols[4].text.strip()
-            sightings_data.append([date, state, location, number])
+
+# Iterate over table rows and extract data
+for row in table.find_all('tr')[1:]:  # Skip the header row
+    cols = row.find_all('td')
+    if len(cols) > 0:
+        date = cols[1].text.strip()
+        town = cols[2].text.strip()
+        state_province = cols[3].text.strip()
+        latitude = cols[4].text.strip()
+        longitude = cols[5].text.strip()
+        number = cols[6].text.strip()
+        sightings_data.append([date, town, state_province, latitude, longitude, number])
 
 # Step 4: Convert the data into a Pandas DataFrame
-df = pd.DataFrame(sightings_data, columns=['Date', 'State/Province', 'Location', 'Number'])
+df = pd.DataFrame(sightings_data, columns=['Date', 'Town', 'State/Province', 'Latitude', 'Longitude', 'Number'])
 
-# Step 5: Clean and save the DataFrame
+# Step 5: Save or display the DataFrame
 if not df.empty:
-    df['Number'] = pd.to_numeric(df['Number'], errors='coerce')  # Convert to numeric, handling errors
-    df.dropna(subset=['Number'], inplace=True)  # Drop rows where 'Number' couldn't be converted
-    df['Number'] = df['Number'].astype(int)  # Convert to integer after cleaning
-    
-    # Save to CSV
+    df['Number'] = df['Number'].astype(int)  # Convert Number to integer for plotting
     df.to_csv('monarch_sightings.csv', index=False)
     print(df)
 else:
@@ -50,6 +45,7 @@ if not df.empty:
     # Plot the data (simple bar chart for example)
     state_sightings.plot(kind='bar', figsize=(10,6))
     plt.title('Monarch Butterfly Sightings by State')
+    plt.xlabel('State/Province')
     plt.ylabel('Number of Sightings')
     plt.show()
 else:
