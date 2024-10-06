@@ -25,7 +25,7 @@ The ZIP file 'PesticideMapping.zip' contains the following files needed:
 5. **View the map:** After entering the pesticide name, a map will be generated and displayed, showing the concentration of the selected pesticide by state.
 
 ## Mapping Monarch Butterflies
-Blah blah blah
+Our next venture was to map the sightings of Monarch Butterflies to compare to pesticides. Our team made use of Journey North's Monarch Butterfly sighting data tables, which combined the sightings of thousands of volunteers into data.
 
 ### Prerequisites
 Before running the code, ensure you have the following installed:
