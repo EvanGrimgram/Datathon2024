@@ -23,7 +23,7 @@ for entry in soup.find_all('div', class_='sighting-entry'):  # Adjust the class 
         sightings_data.append([state.text, count.text])
 
 # Step 4: Convert the data into a Pandas DataFrame
-df = pd.DataFrame(sightings_data, columns=['State', 'Count'])
+df = pd.DataFrame(sightings_data, columns=['State/Province', 'Number'])
 
 # Step 5: Save or display the DataFrame
 if not df.empty:
@@ -36,7 +36,7 @@ else:
 # To visualize:
 if not df.empty:
     # Group data by state and sum up the sightings count
-    state_sightings = df.groupby('State')['Count'].sum()
+    state_sightings = df.groupby('State/Province')['Number'].sum()
 
     # Plot the data (simple bar chart for example)
     state_sightings.plot(kind='bar', figsize=(10,6))
