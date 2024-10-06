@@ -25,7 +25,28 @@ The ZIP file 'PesticideMapping.zip' contains the following files needed:
 5. **View the map:** After entering the pesticide name, a map will be generated and displayed, showing the concentration of the selected pesticide by state.
 
 ## Mapping Monarch Butterflies
-???????????????? Input information here?????????????????????????????????????????
+Blah blah blah
+
+### Prerequisites
+Before running the code, ensure you have the following installed:
+- Python 3.x
+- Pandas library
+- Requests library
+- BeautifulSoup4 library
+- Matplotlib library
+
+You can install the required libraries using pip in the Command Prompt: ```pip install requests beautifulsoup4 pandas matplotlib```
+
+### Files
+The ZIP file 'WebScrapping.zip' contains the following file needed:
+- web_scrapping.py: The Python script to generate the map.
+
+### Instructions 
+1. **Extract the ZIP file:** Extract the contents of the ZIP file to a directory on your computer.
+2. **Navigate to the directory:** Open a terminal or command prompt and navigate to the directory where you extracted the files.
+4. **Run the Python script:** Execute the following command to run the Python script: ```python web_scrapping.py```
+5. **Input the Data Table Link:** When prompted, enter the link of a Journey North data table regarding Adult Monarch Butterflies. An example you can use is <<https://journeynorth.org/sightings/querylist.html?map=monarch-adult-spring&year=2024&season=spring>>. 
+6. **View the data:** After executing the Python script, a bar chart will be opened and a CSV file will be created containing your data inside your directory
 
 ## Limitations and Biases
 While our data is very informative and necessary for our project, it is not without its limitations:
