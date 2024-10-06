@@ -36,6 +36,6 @@ While our data is very informative and necessary for our project, it is not with
 ## Contributers
 Our group had the following Hackers involved in this project along with their contributions:
 - **John Griffith** - Main developer for the Pesticide Mapper, and managing the projects framework
-- **Bella Griffith** - Constructed Pesticide Mapper, gathered, sorted, and presented data
-- **Aishwarya Patel** - input contributions here
-- **Victor Robles Jr** - input contributions here
+- **Bella Griffith** - Developed Pesticide Mapper, gathering, sorting, and presenting data
+- **Aishwarya Patel** - Developer for Web-Scraping, gathering data
+- **Victor Robles Jr** - Gathering data, presenting
