@@ -36,6 +36,6 @@ While our data is very informative and necessary for our project, it is not with
 ## Contributers
 Our group had the following Hackers involved in this project along with their contributions:
 - **John Griffith** - Main developer for the Pesticide Mapper, and managing the projects framework
-- **Bella Griffith** - input contributions here
+- **Bella Griffith** - Constructed Pesticide Mapper, gathered, sorted, and presented data
 - **name here** - input contributions here
 - **name here** - input contributions here
