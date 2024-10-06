@@ -1,33 +1,42 @@
 # Install necessary libraries:
 # pip install requests beautifulsoup4 pandas matplotlib
 
-# Web Scraping Code:
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import matplotlib.pyplot as plt
 
 # Step 1: Fetch the page content
-url = "https://journeynorth.org/sightings/querylist.html?map=monarch-adult-spring&year=2024&season=spring"  # Replace this with the actual URL for monarch sightings
+url = "https://journeynorth.org/sightings/querylist.html?map=monarch-adult-spring&year=2024&season=spring"
 response = requests.get(url)
 
 # Step 2: Parse the HTML content using BeautifulSoup
 soup = BeautifulSoup(response.text, 'html.parser')
 
-# Step 3: Locate the sightings data (this part depends on the actual HTML structure of the website)
+# Step 3: Locate the sightings data based on the actual HTML structure
 sightings_data = []
-for entry in soup.find_all('div', class_='sighting-entry'):  # Adjust the class name accordingly
-    state = entry.find('span', class_='State/Province')
-    count = entry.find('span', class_='Number')
-    if state and count:  # Check if the elements are found
-        sightings_data.append([state.text, count.text])
+table = soup.find('table', class_='views-table')  # Assuming the data is in a table
+if table:
+    rows = table.find_all('tr')
+    for row in rows[1:]:  # Skipping the header row
+        cols = row.find_all('td')
+        if len(cols) >= 5:  # Adjust this based on number of columns
+            date = cols[0].text.strip()
+            state = cols[1].text.strip()
+            location = cols[2].text.strip()
+            number = cols[4].text.strip()
+            sightings_data.append([date, state, location, number])
 
 # Step 4: Convert the data into a Pandas DataFrame
-df = pd.DataFrame(sightings_data, columns=['State/Province', 'Number'])
+df = pd.DataFrame(sightings_data, columns=['Date', 'State/Province', 'Location', 'Number'])
 
-# Step 5: Save or display the DataFrame
+# Step 5: Clean and save the DataFrame
 if not df.empty:
-    df['Count'] = df['Count'].astype(int)  # Convert Count to integer for plotting
+    df['Number'] = pd.to_numeric(df['Number'], errors='coerce')  # Convert to numeric, handling errors
+    df.dropna(subset=['Number'], inplace=True)  # Drop rows where 'Number' couldn't be converted
+    df['Number'] = df['Number'].astype(int)  # Convert to integer after cleaning
+    
+    # Save to CSV
     df.to_csv('monarch_sightings.csv', index=False)
     print(df)
 else:
